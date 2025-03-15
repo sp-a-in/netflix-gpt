@@ -1,0 +1,10 @@
+{
+    "presets": [
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic" // Enable the new JSX runtime
+        }
+      ]
+    ]
+  }
