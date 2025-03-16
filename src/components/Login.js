@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import NETFLIX_LOGO from "../utils/constants";
 import Header from "./Header";
 import checkValidation from "../utils/validate";
-// import checkValidation from "../utils/validate";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../utils/firebase";
 
 const Login = () => {
     let [isSignInForm, setIsSignInForm] = useState(true);
@@ -13,7 +14,19 @@ const Login = () => {
 
     let handleSignButton = () => {
         let errorMsg = checkValidation(email.current.value, password.current.value)
-        setErrorMessage(errorMsg);
+        if(errorMsg) {
+            setErrorMessage(errorMsg);
+            return;
+        }
+        createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+            console.log('userCredential: ', userCredential);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErrorMessage(errorCode + " - " + errorMessage)
+        });
         
     }
 
