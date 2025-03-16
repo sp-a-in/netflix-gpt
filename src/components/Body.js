@@ -1,6 +1,12 @@
+import Browse from "./Browse"
+import Login from "./Login"
+
 const Body = () => {
   return (
-    <div className="font-bold">Body</div>
+    <div>
+      <Login />
+      <Browse />
+    </div>
   )
 }
 
