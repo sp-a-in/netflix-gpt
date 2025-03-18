@@ -31,15 +31,15 @@ const Login = () => {
         if(!isSignInForm) {
             createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
-                console.log('userCredentialcreateUserWithEmailAndPassword: ', userCredential);
-
-                updateProfile(userCredential.currentUser, {
+                let user = userCredential.user
+                updateProfile(user, {
                     displayName: name.current.value, photoURL: "https://w0.peakpx.com/wallpaper/192/408/HD-wallpaper-eren-art-dp-anime-aot-profile.jpg"
-                  }).then((userCredential) => {
+                  }).then(() => {
                     // Profile updated!
-                    console.log('userCredential.currentUser: prrofile', userCredential.currentUser);
-                    
+                    console.log("Profile updated!");
+                    navigate("/browse");
                   }).catch((error) => {
+                    console.log('error: profile ', error);
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setErrorMessage(errorCode + " - " + errorMessage)
