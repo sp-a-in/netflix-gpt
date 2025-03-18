@@ -1,17 +1,12 @@
-import { useState, useRef, useEffect } from "react";
-import NETFLIX_LOGO from "../utils/constants";
+import { useState, useRef } from "react";
+import NETFLIX_LOGO, { DEFAULT_PHOTO_URL } from "../utils/constants";
 import Header from "./Header";
 import checkValidation from "../utils/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import auth from "../utils/firebase";
-import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../stores/slices/userSlice";
-import { useNavigate } from "react-router";
 
 const Login = () => {
 
-    let dispatch = useDispatch();
-    let navigate = useNavigate();
 
     let [isSignInForm, setIsSignInForm] = useState(true);
     let [errorMessage, setErrorMessage] = useState(null); 
@@ -33,17 +28,15 @@ const Login = () => {
             .then((userCredential) => {
                 let user = userCredential.user
                 updateProfile(user, {
-                    displayName: name.current.value, photoURL: "https://w0.peakpx.com/wallpaper/192/408/HD-wallpaper-eren-art-dp-anime-aot-profile.jpg"
+                    displayName: name.current.value, photoURL: DEFAULT_PHOTO_URL
                   }).then(() => {
                     // Profile updated!
                     console.log("Profile updated!");
-                    navigate("/browse");
                   }).catch((error) => {
                     console.log('error: profile ', error);
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setErrorMessage(errorCode + " - " + errorMessage)
-                    navigate("/");
                     // An error occurred
                     // ...
                   });
@@ -52,42 +45,21 @@ const Login = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setErrorMessage(errorCode + " - " + errorMessage)
-                navigate("/");
             });
         } else {
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
                 console.log('userCredentialsignInWithEmailAndPassword: ', userCredential);
                 // Signed in 
-                navigate("/browse");
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setErrorMessage(errorCode + " - " + errorMessage)
-                navigate("/");
             });
         }    
     }
-
-    useEffect(()=> {
-        onAuthStateChanged(auth, (user) => {
-            console.log('user: ', user);
-            if (user) {
-                // User is signed in, see docs for a list of available properties
-                // const user = user;   
-                let {displayName, email, photoURL, uid} = user
-                console.log('user: ', user);
-                dispatch(addUser({displayName: displayName, email: email, photoURL: photoURL, uid: uid}));
-            } else {
-                console.log("Signed OUt");
-                // User is signed out
-                dispatch(removeUser());
-                // ...
-            }
-        });
-    }, [])
 
 
     let handleToggle = () => {
