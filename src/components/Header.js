@@ -1,15 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import auth from "../utils/firebase";
 import logoUrl from "./../assets/netflix.svg"
 import { signOut } from "firebase/auth";
-import { removeUser } from "../stores/slices/userSlice";
 import { useNavigate } from "react-router";
 
 
 const Header = () => {
 
   let navigate = useNavigate();
-  let dispatch = useDispatch();
   let user = useSelector((state)=> state.user);
   console.log('user: ', user);
 
@@ -17,7 +15,6 @@ const Header = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
       console.log("Here");
-      dispatch(removeUser());
       navigate("/");
     }).catch((error) => {
       console.log('error: ', error);
