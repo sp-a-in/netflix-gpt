@@ -18,22 +18,18 @@ const Header = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let user = useSelector((state)=> state.user);
-  console.log('user: ', user);
   
 
   useEffect(()=> {
       let unsubscribe = onAuthStateChanged(auth, (user) => {
-          console.log('user: ', user);
           if (user) {
               // User is signed in, see docs for a list of available properties
               // const user = user;   
               let {displayName, email, photoURL, uid} = user
-              console.log('user: ', user);
               setUserImage(user.photoURL)
               navigate("/browse")
               dispatch(addUser({displayName: displayName, email: email, photoURL: photoURL, uid: uid}));
           } else {
-              console.log("Signed OUt");
               // User is signed out
               navigate("/");
               dispatch(removeUser());
@@ -47,7 +43,6 @@ const Header = () => {
   let handleSignOut = ()=> {
     signOut(auth).then(() => {
       // Sign-out successful.
-      console.log("Here");
       navigate("/");
     }).catch((error) => {
       console.log('error: ', error);

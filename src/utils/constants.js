@@ -3,5 +3,13 @@ export let DEFAULT_IMAGE = "https://i.pinimg.com/474x/61/54/76/61547625e01d8daf9
 export let DEFAULT_PHOTO_URL = "https://w0.peakpx.com/wallpaper/192/408/HD-wallpaper-eren-art-dp-anime-aot-profile.jpg";
 export let MAIL_VALIDATOR_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export let PASSWORD_VALIDATOR_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+export let OPTIONS = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOThhMmEyYTYxYTYwMWUwNmVhMmMyYWMwNzM5MzNhNCIsIm5iZiI6MTc0MjMzMDcyNS4xNzI5OTk5LCJzdWIiOiI2N2Q5ZGI2NThlYzVjNGNlNDQyY2NiYjEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Mjt_2ac6E8e_Q2KyG1PglXbcjfEM-q2wvrP7FLCX5AU'
+    }
+};
+
 
 export default NETFLIX_LOGO;

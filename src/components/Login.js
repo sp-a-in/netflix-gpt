@@ -31,7 +31,6 @@ const Login = () => {
                     displayName: name.current.value, photoURL: DEFAULT_PHOTO_URL
                   }).then(() => {
                     // Profile updated!
-                    console.log("Profile updated!");
                   }).catch((error) => {
                     console.log('error: profile ', error);
                     const errorCode = error.code;
@@ -49,7 +48,7 @@ const Login = () => {
         } else {
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
-                console.log('userCredentialsignInWithEmailAndPassword: ', userCredential);
+                console.log(userCredential);
                 // Signed in 
                 // ...
             })
@@ -70,7 +69,7 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute">
-                <img src={NETFLIX_LOGO} />
+                <img className="w-screen" src={NETFLIX_LOGO} />
             </div>
                 <form className="absolute p-12 bg-black m-auto right-0 left-0 w-3/12 my-36 text-white opacity-85 rounded-lg" onSubmit={(e)=> {e.preventDefault()}}>
                     <h1 className="font-bold text-3xl py-4">Sign {isSignInForm ? "In" : "Up"}</h1>
