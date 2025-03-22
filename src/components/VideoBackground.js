@@ -17,7 +17,7 @@ let VideoBackground = ({recommendedMovieId}) => {
             return videoObj.type == 'Trailer';
         });
 
-        dispatch(addTrailerVideo(trailerVideos[0]))
+        dispatch(addTrailerVideo(trailerVideos[2]))
     }
 
     useEffect(()=> {
@@ -30,7 +30,7 @@ let VideoBackground = ({recommendedMovieId}) => {
 
     return (
         <div>
-            <iframe width="560" height="315" src={"https://www.youtube.com/embed/" + trailerVideo.key} title="KARZ | Rock Instrumental Theme | Ratnadeep" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe className="w-screen aspect-video" src={"https://www.youtube.com/embed/" + trailerVideo.key + '?autoplay=1&mute=1'}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         </div>
     )
 }
