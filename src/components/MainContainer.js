@@ -8,7 +8,7 @@ let MainContainer = () => {
     console.log('nowPlayingMovies: ', nowPlayingMovies);
 
     if(!nowPlayingMovies) return;
-
+ 
     let firstRecommendedMovie = nowPlayingMovies.results[0];
     console.log('firstRecommendedMovie: ', firstRecommendedMovie);
 
@@ -17,7 +17,7 @@ let MainContainer = () => {
     return (
         <div>
             <VideoTitle original_title={firstRecommendedMovie.original_title} overview={firstRecommendedMovie.overview} />
-            <VideoBackground />
+            <VideoBackground recommendedMovieId={firstRecommendedMovie.id} />
         </div>
     )
 }
