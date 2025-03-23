@@ -8,7 +8,7 @@ const Browse = () => {
     useNowPlayingMovies();
 
     return (
-        <div>
+        <div className="w-screen">
             <Header />
             <MainContainer />
             <SecondaryContainer />
