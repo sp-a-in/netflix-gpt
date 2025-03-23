@@ -51,7 +51,7 @@ const Header = () => {
   } 
 
   return (
-    <div className="absolute p-6 bg-gradient-to-b from-black z-10 flex justify-between w-screen">
+    <div className="absolute p-6 bg-gradient-to-b from-black z-20 flex justify-between w-screen">
       <img src = {logoUrl} alt="My Happy SVG" className="w-48 custom-logo" />
       {user && <div className="flex gap-2 align-middle">
         <img src={userImage} className="w-10 h-10"/>
