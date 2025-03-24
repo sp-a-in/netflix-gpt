@@ -53,8 +53,9 @@ const Header = () => {
   return (
     <div className="absolute p-6 bg-gradient-to-b from-black z-20 flex justify-between w-screen">
       <img src = {logoUrl} alt="My Happy SVG" className="w-48 custom-logo" />
-      {user && <div className="flex gap-2 align-middle">
-        <img src={userImage} className="w-10 h-10"/>
+      {user && <div className="flex gap-4 align-middle">
+        <button className="p-4 bg-blue-800 rounded-lg text-white text-lg font-medium font-sans cursor-pointer"> GPT Search</button>
+        <img src={userImage} className="w-15 h-15"/>
         <button className="font-bold text-yellow-50 cursor-pointer" onClick={handleSignOut}>(Sign Out)</button>
       </div>}
     </div>
