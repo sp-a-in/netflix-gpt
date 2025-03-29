@@ -3,8 +3,6 @@ import infoIcon from "./../assets/infoIcon.svg";
 
 
 let VideoTitle = ({original_title, overview}) => {
-    console.log('original_title: ', original_title);
-    console.log('overview: ', overview);
     return (
         <div className="pt-[15%] px-24 absolute text-white w-screen h-screen z-10 bg-gradient-to-r from-black">
             <h1 className="font-bold text-7xl my-4 w-5/12">{original_title}</h1>

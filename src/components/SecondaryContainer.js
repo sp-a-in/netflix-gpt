@@ -4,7 +4,15 @@ import MovieList from "./movieList";
 let SecondaryContainer = () => {
 
     let nowPlayingMovies = useSelector((state)=> state.movies.nowPlayingMovies)
-    console.log('nowPlayingMovies: ', nowPlayingMovies);
+
+    let topRatedMovies = useSelector((state)=> state.movies.topRatedMovies)
+
+    let upcomingMovies = useSelector((state)=> state.movies.upcomingMovies)
+
+
+    let popularMovies = useSelector((state)=> state.movies.popularMovies)
+
+    
 
     if(!nowPlayingMovies) {
         return <div>loading....</div>
@@ -13,10 +21,9 @@ let SecondaryContainer = () => {
         <div className="bg-black px-2">
             <div className="-mt-80 relative z-20">
                 <MovieList nowPlayingMovies={nowPlayingMovies} listTitle={"Now Playing"} />
-                <MovieList nowPlayingMovies={nowPlayingMovies} listTitle={"Trending"} />
-                <MovieList nowPlayingMovies={nowPlayingMovies} listTitle={"Popular"} />
-                <MovieList nowPlayingMovies={nowPlayingMovies} listTitle={"Upcoming Movies"} />
-                <MovieList nowPlayingMovies={nowPlayingMovies} listTitle={"Horror"} />
+                <MovieList nowPlayingMovies={topRatedMovies} listTitle={"Top Rated Movies"} />
+                <MovieList nowPlayingMovies={upcomingMovies} listTitle={"Upcoming Movies"} />
+                <MovieList nowPlayingMovies={popularMovies} listTitle={"Popular Movies"} />
             </div>
         </div>
     )

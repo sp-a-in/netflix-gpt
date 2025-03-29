@@ -5,12 +5,10 @@ import VideoTitle from "./VideoTitle";
 let MainContainer = () => {
 
     let nowPlayingMovies = useSelector((state)=> state.movies.nowPlayingMovies)
-    console.log('nowPlayingMovies: ', nowPlayingMovies);
 
     if(!nowPlayingMovies) return;
  
     let firstRecommendedMovie = nowPlayingMovies.results[0];
-    console.log('firstRecommendedMovie: ', firstRecommendedMovie);
 
 
 

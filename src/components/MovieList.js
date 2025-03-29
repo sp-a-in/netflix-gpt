@@ -1,6 +1,14 @@
 import MovieCard from "./movieCard";
 
 let MovieList = ({ listTitle, nowPlayingMovies }) => {
+
+  if(!nowPlayingMovies) {
+    return (
+      <div>
+        Loading.....
+      </div>
+    )
+  }
   return (
     <div className="overflow-x-scroll w-auto p-6 no-scrollbar px-16">
       <h1 className="text-3xl py-6 text-white">{listTitle}</h1>
