@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import NETFLIX_LOGO, { DEFAULT_PHOTO_URL } from "../utils/constants";
+import NETFLIX_BG, { DEFAULT_PHOTO_URL } from "../utils/constants";
 import Header from "./Header";
 import checkValidation from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -69,7 +69,7 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute">
-                <img className="w-screen" src={NETFLIX_LOGO} />
+                <img className="w-screen" src={NETFLIX_BG} />
             </div>
                 <form className="absolute p-12 bg-black m-auto right-0 left-0 w-3/12 my-36 text-white opacity-85 rounded-lg" onSubmit={(e)=> {e.preventDefault()}}>
                     <h1 className="font-bold text-3xl py-4">Sign {isSignInForm ? "In" : "Up"}</h1>
