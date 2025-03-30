@@ -11,6 +11,7 @@ export let OPTIONS = {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOThhMmEyYTYxYTYwMWUwNmVhMmMyYWMwNzM5MzNhNCIsIm5iZiI6MTc0MjMzMDcyNS4xNzI5OTk5LCJzdWIiOiI2N2Q5ZGI2NThlYzVjNGNlNDQyY2NiYjEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Mjt_2ac6E8e_Q2KyG1PglXbcjfEM-q2wvrP7FLCX5AU'
     }
 };
+export let OPENAI_SECRETKEY = "abcd";
 export let LANG_OPTIONS = [
     {
         identifier: "english",

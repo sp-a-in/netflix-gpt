@@ -12,7 +12,7 @@ let GptSuggestion = () => {
     }
     
     return (
-        <div className="m-4 p-4 bg-black text-white">
+        <div className="m-4 p-4 bg-black text-white opacity-90">
             <div>
                 {
                     movieNames.map((movieName, index)=> (
