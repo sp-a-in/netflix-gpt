@@ -5,7 +5,7 @@ import GptSuggestion from "./GptSuggestion"
 const GptSearch = () => {
   return (
     <div className="text-white">
-        <div className="absolute -z-10">
+        <div className="fixed -z-10">
             <img className="w-screen" src={NETFLIX_BG} />
         </div>
         <GptSearchBar />

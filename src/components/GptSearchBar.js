@@ -15,7 +15,7 @@ let GptSearchBar = () => {
         let fetchMovie = await fetch('https://api.themoviedb.org/3/search/movie?query='+movie, OPTIONS)
         let jsonData = await fetchMovie.json()
         console.log('jsonData: ', jsonData);
-        return jsonData.results;
+        return jsonData;
     }
 
     let handleGptSearch = async ()=> {
@@ -50,7 +50,7 @@ let GptSearchBar = () => {
         let tmdbResults = await Promise.all(promiseArray);
         console.log('tmdbResults: ', tmdbResults); 
 
-        dispatch(addGptMovieResults({movieNames: movies, movieResults: tmdbResults}))
+        dispatch(addGptMovieResults({movieNames: movies, movieResults: tmdbResults}));
 
         
     }
@@ -58,7 +58,7 @@ let GptSearchBar = () => {
     let selectedLanguage = useSelector((state) => state.config.selectedLanguage)
 
     return (
-        <div className="pt-[20%] flex justify-center">
+        <div className="pt-[10%] flex justify-center">
             <form onSubmit={(e)=> {e.preventDefault();}} className="flex justify-center gap-4">
                 <input className="p-4 w-xl opacity-80 rounded border border-gray-500/70 bg-black" placeholder={lang[selectedLanguage].gptSearchPlaceholder} ref={searchText} />
                 <button className=" p-4 cursor-pointer rounded-md bg-red-600 w-72 text-2xl font-medium flex gap-1 justify-center hover:bg-red-700" onClick={handleGptSearch}>
