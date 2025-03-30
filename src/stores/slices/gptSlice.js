@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 let gptSlice = createSlice({
         name: 'gptSlice',
         initialState: {
-            gptSearchToggle: true,
+            gptSearchToggle: false,
         },
         reducers: {
             toggleGptSearch: (state) => {

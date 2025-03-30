@@ -19,6 +19,9 @@ const Header = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let user = useSelector((state)=> state.user);
+  let gptSearchToggle = useSelector((state)=> state.gpt.gptSearchToggle);
+
+  
   
 
   let toggleGptMethod = () => {
@@ -63,12 +66,12 @@ const Header = () => {
     <div className="absolute p-6 bg-gradient-to-b from-black z-20 flex justify-between w-screen">
       <img src = {logoUrl} alt="My Happy SVG" className="w-48 custom-logo" />
       {user && <div className="flex gap-4 align-middle">
-       <select className="p-4 w-fit opacity-80 rounded border border-gray-500/70 bg-black text-white" onChange={handleLanguageChange} >
+      { gptSearchToggle && <select className="p-4 w-fit opacity-80 rounded border border-gray-500/70 bg-black text-white cursor-pointer" onChange={handleLanguageChange} >
         {LANG_OPTIONS.map((lang) => {
-          return (<option value={lang.identifier}>{lang.language}</option>)
+          return (<option value={lang.identifier} className="cursor-pointer">{lang.language}</option>)
         })}
-       </select>
-        <button className="p-4 bg-blue-800 rounded-lg text-white text-lg font-medium font-sans cursor-pointer" onClick={toggleGptMethod}> GPT Search</button>
+       </select>}
+        <button className="p-4 bg-blue-800 rounded-lg text-white text-lg font-medium font-sans cursor-pointer" onClick={toggleGptMethod}> {gptSearchToggle ? 'Home Page' : 'GPT Search' }</button>
         <img src={userImage} className="w-15 h-15"/>
         <button className="font-bold text-yellow-50 cursor-pointer" onClick={handleSignOut}>(Sign Out)</button>
       </div>}

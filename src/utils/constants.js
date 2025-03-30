@@ -17,12 +17,12 @@ export let LANG_OPTIONS = [
         language: "English"
     },
     {
-        identifier: "spanish",
-        language: "Spanish"
-    },
-    {
         identifier: "hindi",
         language: "Hindi"
+    },
+    {
+        identifier: "spanish",
+        language: "Spanish"
     },
 ];
 
