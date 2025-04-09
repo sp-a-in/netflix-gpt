@@ -19,7 +19,7 @@ let GptSearchBar = () => {
     }
 
     let handleGptSearch = async ()=> {
-        // console.log(searchText.current.value);
+        console.log(searchText.current.value);
         // let gptQuery = "Act as a movie recommendation system which takes keyword and suggest some movies for the query" + searchText.current.value + ". only give me names of 5 movies comma seprated "
         // console.log('gptQuery: ', gptQuery);
         // const completion = await openai.chat.completions.create({
