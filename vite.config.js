@@ -67,4 +67,8 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    host: '0.0.0.0', // 👈 Crucial for Docker networking
+    port: 5173,
+  },
 });

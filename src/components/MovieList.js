@@ -1,4 +1,4 @@
-import MovieCard from "./movieCard";
+import MovieCard from "./MovieCard";
 
 let MovieList = ({ listTitle, nowPlayingMovies }) => {
 
